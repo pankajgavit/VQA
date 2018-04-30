@@ -1,7 +1,8 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>VQA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,6 +13,22 @@
 
 <div class="container">
   <h2>Visual Question Answering</h2>
+    <div class="main" >
+		 <div class="gallery">
+			  <section class="row">
+                  {% for gallery in all_gallery %}
+				  <ul class="lb-album col-sm-6" style="padding-left: 15px;padding-right: 15px;padding-bottom: 25px;">
+                                     {{ gallery.image_info }}
+                      <img src="{{ gallery.gallery.url}}" class="center-block img-responsive img-thumbnail " alt="" style="width: 600px ;height:300px">
+                        <br>
+                        <br>
+                  <span> </span>
+                  </ul>
+                  {% endfor %}</section>
+			 <div class="clearfix"> </div>
+		  </div>
+         </div>
+
   <form action="/answer/" method="get">
     <div class="form-group">
       <label>Question:</label>
